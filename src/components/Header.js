@@ -1,19 +1,22 @@
 import React from "react";
 import "../styles/Header.css";
-import LoginButton from "./buttons/LoginButton";
-import LogoutButton from "./buttons/LogoutButton";
-import { useAuth0 } from "@auth0/auth0-react";
+import AuthenticationButton from "./buttons/AuthenticationButton";
 
 const Header = () => {
-  const { user, isAuthenticated } = useAuth0();
   return (
     <div className="header">
-      <a href="#default" className="logo">
-        Room Booking Service
-      </a>
+      <div className="header-left">
+        <a href="#default" className="logo">
+          Room Booking Service
+        </a>
+      </div>
 
+      <div className="header-nav">
+        <a href="/profile">Profile</a>
+        <a href="/admin-dashboard">Dashboard</a>
+      </div>
       <div className="header-right">
-        {isAuthenticated ? <LogoutButton /> : <LoginButton />}
+        <AuthenticationButton />
       </div>
     </div>
   );

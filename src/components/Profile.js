@@ -3,23 +3,22 @@ import { useAuth0 } from "@auth0/auth0-react";
 import "../styles/Profile.css";
 
 const Profile = () => {
-  const { user, isAuthenticated, isLoading } = useAuth0();
+  const { user } = useAuth0();
 
-  if (isLoading) {
-    return <div>Loading ...</div>;
-  }
+  const { name, picture, email } = user;
 
   return (
     <div className="page-container">
-      {isAuthenticated && (
-        <div className="profile-wrapper">
-          <img src={user.picture} alt={user.name} />
-          <div className="user-info">
-            <h2>{user.name}</h2>
-            <p>{user.email}</p>
-          </div>
+      <div className="profile-wrapper">
+        <img src={picture} alt={name} />
+        <div className="user-info">
+          <h2>{name}</h2>
+          <p>{email}</p>
         </div>
-      )}
+      </div>
+      <div>
+        <pre>{JSON.stringify(user, null, 2)}</pre>
+      </div>
     </div>
   );
 };

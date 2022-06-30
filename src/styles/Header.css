@@ -38,6 +38,18 @@
   float: right;
 }
 
+.header-left a {
+  height: 100%;
+  background: var(--clr-primary-9);
+}
+
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  margin: 0 25px;
+}
+
 @media screen and (max-width: 500px) {
   .header a {
     float: none;
